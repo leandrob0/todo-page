@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
 
 /*
     WHOLE PAGE BASIC STRUCTURE STYLES.
@@ -7,6 +7,9 @@ body {
     margin: 0;
     height: 100vh;
     width: 100%;
+
+    font-family: 'Prompt', sans-serif;
+    color: white;
 }
 
 .container-total {
@@ -21,8 +24,7 @@ body {
     left: 0;
     right: 0;
 
-    background-color: #666;
-    font-family: 'Benne', serif;
+    background-color: #607196;
 
     height: 15vh;
 
@@ -32,25 +34,62 @@ body {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
     position: absolute;
     left: 0;
     bottom: 0;
 
     height: 85vh;
-    width: 35vh;
+    width: 38vh;
 
-    background-color: #333;
+    background-color: #BABFD1;
+    color:rgb(29, 29, 29);
+    font-size: 24px;
 }
 
 .lists-container {
     position: absolute;
     right: 0;
     bottom: 0;
-    left: 35vh;
+    left: 38vh;
 
     height: 85vh;
 
-    background-color: rgb(212, 209, 209);
+    background-color: #E8E9ED;
 
     overflow: scroll;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.title-page {
+    font-size: 38px;
+    font-weight: 700;
+
+    border-bottom: 2px solid white;
+}
+
+.span-sidebar:first-of-type {
+    margin-top: 50px;
+}
+
+.span-sidebar {
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.span-sidebar:hover {
+    transform: scale(1.1);
+    color: black;
 }

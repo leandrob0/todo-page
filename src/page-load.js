@@ -1,4 +1,13 @@
 import './style.css';
+import Icon from './logo.svg';
+import { sidebarLoad } from './sidebar-load.js';
+
+/*
+    ##
+    THIS FUNCTION TAKES CARE OF ALL THE BASIC HTML STRUCTURE WITH THE ITEMS THAT WILL
+    ALWAYS BE THERE.
+    ##
+*/
 
 function contentLoader() {
 
@@ -8,14 +17,20 @@ function contentLoader() {
     containerTotal.classList.add('container-total');
     body.appendChild(containerTotal);
 
-    //ADDS THE PAGE HEADER 
+    //ADDS THE PAGE HEADER WITH ALL ITS CONTENT
     const header = document.createElement('header');
-    const logo = document.createElement('div');
+    const titlePage = document.createElement('p');
+    const myIcon = new Image();
 
+    myIcon.src = Icon;
     header.classList.add('header-page');
-    logo.classList.add('logo');
+    myIcon.classList.add('logo');
+    titlePage.classList.add('title-page');
+    myIcon.setAttribute('alt', 'Icon by https://freeicons.io/profile/823 - Muhammad Haq');
+    titlePage.textContent = 'TODO LIST!';
 
-    header.appendChild(logo);
+    header.appendChild(myIcon);
+    header.appendChild(titlePage);
     containerTotal.appendChild(header);
 
     //ADDS THE PAGE SIDEBAR
@@ -24,6 +39,8 @@ function contentLoader() {
     sidebar.classList.add('sidebar');
 
     containerTotal.appendChild(sidebar);
+
+    sidebarLoad();
 
     //ADDS THE PAGE LISTS CONTENT HOLDER
     const lists = document.createElement('div');
