@@ -61,7 +61,7 @@ body {
 
     background-color: #E8E9ED;
 
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .logo {
@@ -92,4 +92,67 @@ body {
 .span-sidebar:hover {
     transform: scale(1.1);
     color: black;
+
+    text-shadow: 0 0 1px #666;
+}
+
+.span-projects {
+    margin: 10px;
+}
+
+
+/*
+#############################
+    TODOS STYLING
+#############################
+*/
+
+.container-todo {
+    height: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem;
+    background-color: #dde1f0;
+    color: black;
+    margin: 1rem;
+}
+
+.side-div {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-todo {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+
+    border-radius: 50%;
+    border: 1px solid black;
+    border-color: #333;
+}
+
+.checkbox-todo:hover {
+    background-color: rgb(41, 122, 41);
+}
+
+.title-todo {
+    font-size: 24px;
+}
+
+.details-todo {
+    padding: 4px;
+    
+    color: rgb(41, 122, 41);
+
+    border-radius: 5px;
+    border: 1px solid rgb(41, 122, 41);
+}
+
+.date-todo {
+    margin-left: 20px;
+    font-size: 12px;
 }

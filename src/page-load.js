@@ -1,6 +1,7 @@
 import './style.css';
 import Icon from './logo.svg';
 import { sidebarLoad } from './sidebar-load.js';
+import { showTodos } from './todos-load.js';
 
 /*
     ##
@@ -48,6 +49,8 @@ function contentLoader() {
     lists.classList.add('lists-container');
 
     containerTotal.appendChild(lists);
+
+    showTodos();
 
 }
 

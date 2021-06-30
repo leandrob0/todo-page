@@ -11,7 +11,7 @@ function sidebarLoad() {
     homeBar.classList.add('span-sidebar');
     todayBar.classList.add('span-sidebar');
     weekBar.classList.add('span-sidebar');
-    projectsBar.classList.add('span-sidebar');
+    projectsBar.classList.add('span-projects');
 
     homeBar.textContent = 'Home';
     todayBar.textContent = 'Today';

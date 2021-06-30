@@ -1,4 +1,3 @@
-import './style.css';
 import { compareAsc, format } from 'date-fns'
 
 const myTodos = (function() {
@@ -7,13 +6,14 @@ const myTodos = (function() {
         {
             Title: 'default',
             Description: 'default',
-            Date: '',
-            Priority: '',
+            Date: '2021',
+            Priority: 'High',
+            Project: 'Hello',
         }
         ];
 
-    function addToDo(title,desc,date,prio) {
-        todo.push({Title: title, Description: desc, Date: date, Priority: prio});
+    function addToDo(title,desc,date,prio,pro) {
+        todo.push({Title: title, Description: desc, Date: date, Priority: prio, Project: pro});
     }
 
     function removeToDo(title) {
@@ -21,7 +21,7 @@ const myTodos = (function() {
         todo.splice(index, 1);
     }
 
-    return { addToDo , removeToDo };
+    return { todo , addToDo , removeToDo };
 })(); 
 
 export { myTodos };
