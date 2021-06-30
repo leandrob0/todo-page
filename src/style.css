@@ -133,6 +133,8 @@ body {
     border-radius: 50%;
     border: 1px solid black;
     border-color: #333;
+
+    transition: background-color 0.3s;
 }
 
 .checkbox-todo:hover {
