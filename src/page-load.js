@@ -2,6 +2,7 @@ import './style.css';
 import Icon from './logo.svg';
 import { sidebarLoad } from './sidebar-load.js';
 import { showTodos } from './todos-load.js';
+import { addNewProjectLoad , projectsNameLoad } from './projects-load';
 
 /*
     ##
@@ -14,6 +15,7 @@ function contentLoader() {
 
     //ADD THE CONTAINER OF THE WHOLE PAGE
     const body = document.querySelector('body');
+
     const containerTotal = document.createElement('div');
     containerTotal.classList.add('container-total');
     body.appendChild(containerTotal);
@@ -41,6 +43,7 @@ function contentLoader() {
 
     containerTotal.appendChild(sidebar);
 
+    //loads the sidebar with the text that will always be there
     sidebarLoad();
 
     //ADDS THE PAGE LISTS CONTENT HOLDER
@@ -50,7 +53,11 @@ function contentLoader() {
 
     containerTotal.appendChild(lists);
 
+    //this 3 lines first render the todo's then the 'button' to add new projects 
+    //and then the projects already created
     showTodos();
+    addNewProjectLoad();
+    projectsNameLoad();
 
 }
 
