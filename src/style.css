@@ -49,6 +49,8 @@ body {
     background-color: #BABFD1;
     color:rgb(29, 29, 29);
     font-size: 24px;
+
+    overflow-y: overlay;
 }
 
 .lists-container {
@@ -208,6 +210,7 @@ body {
 ##################################
 */
 .backdrop-modal {
+    display: none;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -222,13 +225,13 @@ body {
     left: 25%;
     z-index: 1;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 
     width: 50vw;
-    height: 60vh;
+    height: 300px;
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -251,12 +254,18 @@ body {
 }
 
 .button-title {
-    position: absolute;
-    bottom: 30px;
+    margin-top: 30px;
 
     border: 0.3px solid #666;
     border-color: rgb(41, 122, 41);
 
     color: rgb(41, 122, 41);
-    padding: 5px;
+    padding: 10px;
+
+    transition: 0.2s ease-in-out;
+}
+
+.button-title:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }

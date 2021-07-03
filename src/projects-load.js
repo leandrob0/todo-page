@@ -30,15 +30,26 @@ function projectsNameLoad() {
 
     //CREATES A PROJECT SPAN FOR EVERY UNIQUE PROJECT NAME
     for(let i = 0; i < differentProjects.length; i++) {
-        const sidebar = document.querySelector('.sidebar');
-        const projectSpan = document.createElement('span');
+      const sidebar = document.querySelector('.sidebar');
+      const projectSpan = document.createElement('span');
 
-        projectSpan.classList.add('span-project');
+      projectSpan.classList.add('span-project');
 
-        projectSpan.textContent = '• ' + differentProjects[i];
+      projectSpan.textContent = '• ' + differentProjects[i];
 
-        sidebar.appendChild(projectSpan);
+      sidebar.appendChild(projectSpan);
     }
 }
 
-export { addNewProjectLoad , projectsNameLoad };
+function createdProject(projectName) {
+  const sidebar = document.querySelector('.sidebar');
+  const projectSpan = document.createElement('span');
+
+  projectSpan.classList.add('span-project');
+
+  projectSpan.textContent = '• ' + projectName;
+
+  sidebar.appendChild(projectSpan);
+}
+
+export { createdProject , addNewProjectLoad , projectsNameLoad };

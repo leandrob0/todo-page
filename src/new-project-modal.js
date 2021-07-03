@@ -27,14 +27,4 @@ function createNewProjectModal() {
     body.appendChild(modal);
 }
 
-function removeModalAndBack() {
-    const body = document.querySelector('body');
-
-    const backdrop = document.querySelector('.backdrop-modal');
-    const modal = document.querySelector('.modal-project');
-
-    body.removeChild(backdrop);
-    body.removeChild(modal);
-}
-
-export { removeModalAndBack , createNewProjectModal }
+export { createNewProjectModal }
