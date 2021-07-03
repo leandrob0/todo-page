@@ -12,6 +12,9 @@ const buttonNewProject = document.querySelector('.new-project');
 const buttonConfirmProject = document.querySelector('.button-title');
 
 function projectConfirmed() {
+    const backdrop = document.querySelector('.backdrop-modal');
+    const modal = document.querySelector('.modal-project');
+
     let titleValue = document.querySelector('.input-title').value;
     console.log(titleValue);
     
@@ -21,6 +24,8 @@ function projectConfirmed() {
         alert(`The project title "${titleValue}" already exists.`);
     } else {
         createdProject(titleValue);
+        backdrop.style.display = 'none';
+        modal.style.display = 'none';
         myProjects.addProject(titleValue);
         buttonConfirmProject.removeEventListener('click', projectConfirmed);
     }
