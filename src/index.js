@@ -3,6 +3,7 @@ import { contentLoader } from './page-load.js';
 import { checkIfValid } from './check-repeated.js';
 import { createdProject } from './projects-load.js';
 import { myProjects } from './projects-module.js';
+import { createOptions } from './new-todo-modal.js';
 
 //loads the whole page content
 contentLoader();
@@ -29,6 +30,8 @@ function projectConfirmed() {
         alert(`The project title "${titleValue}" is too long(10 characters max).`);
     } else if(checkIfValid(titleValue) == 2) {
         alert(`The project title "${titleValue}" already exists.`);
+    }else if(checkIfValid(titleValue) == 3){
+        alert(`The project title only contains white spaces.`);
     } else {
         createdProject(titleValue);
         backdrop.style.display = 'none';
@@ -37,6 +40,7 @@ function projectConfirmed() {
         buttonConfirmProject.removeEventListener('click', projectConfirmed);
     }
 }
+
 
 buttonNewProject.addEventListener('click', () => {
     //sets the modal to visible
@@ -69,6 +73,13 @@ buttonTodo.addEventListener('click', () => {
     const backdrop = document.querySelector('.backdrop-modal');
     const modalTodo = document.querySelector('.modal-todo');
 
+    createOptions();
+
     backdrop.style.display = 'block';
     modalTodo.style.display = 'flex';
+
+    backdrop.addEventListener('click', () => {
+        backdrop.style.display = 'none';
+        modalTodo.style.display = 'none';
+    });
 });

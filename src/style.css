@@ -334,3 +334,48 @@ body {
 
     z-index: 1;
 }
+
+.todo-label {
+    font-size: 24px;
+    font-weight: 700;
+
+    margin-top: 20px;
+    margin-bottom: 0;
+
+    padding: 5px;
+}
+
+.inputTitle-todo {
+    width: 500px;
+    height: 30px;
+}
+
+.inputDesc-todo {
+    width: 500px;
+    height: 80px;
+
+    max-height: 80px;
+    max-width: 500px;
+    min-height: 80px;
+    min-width: 500px;
+}
+
+.buttonModal-todo {
+    margin-bottom: 20px;
+    border: 0.3px solid #666;
+    border-color: rgb(41, 122, 41);
+    color: rgb(41, 122, 41);
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    align-self: center;
+    justify-self: center;
+}
+
+.buttonModal-todo:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+select:last-of-type {
+    margin-bottom: 20px;
+}

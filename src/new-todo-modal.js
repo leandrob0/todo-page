@@ -1,4 +1,5 @@
 import './style.css';
+import { myProjects } from './projects-module.js';
 
 function createNewTodoModal() {
     const body = document.querySelector('body');
@@ -24,21 +25,21 @@ function createNewTodoModal() {
 
     inputTitle.setAttribute('type', 'text');
     inputTitle.setAttribute('placeholder',"Write your project title here...");
-    title.classList.add('titleModal-todo');
+    title.classList.add('todo-label');
     inputTitle.classList.add('inputTitle-todo');
 
     inputDesc.setAttribute('placeholder',"Write your project description here...");
-    description.classList.add('desc-todo');
+    description.classList.add('todo-label');
     inputDesc.classList.add('inputDesc-todo');
     
     inputDate.setAttribute('type','date');
     inputDate.classList.add('inputDate-todo');
-    date.classList.add('date-todo');
+    date.classList.add('todo-label');
 
-    priority.classList.add('prio-todo');
+    priority.classList.add('todo-label');
     inputPrio.classList.add('inputPrio-todo');
 
-    project.classList.add('project-todo');
+    project.classList.add('todo-label');
     inputProject.classList.add('inputProject-todo');
 
     buttonAccept.classList.add('buttonModal-todo');
@@ -70,4 +71,27 @@ function createNewTodoModal() {
     body.appendChild(modal);
 }
 
-export { createNewTodoModal }
+function createOptions() {
+    const select = document.querySelector('.inputProject-todo');
+    const selectPrio = document.querySelector('.inputPrio-todo');
+
+    let prios = ['High','Medium','Low'];
+
+    for(let i = 0; i < myProjects.lengthArray(); i++) {
+        let name = myProjects.returnNameProject(i);
+
+        const option = document.createElement('option');
+        option.textContent = name;
+
+        select.appendChild(option);
+    }
+
+    for(let i = 0; i < 3; i++) {
+        const option = document.createElement('option');
+        option.textContent = prios[i];
+
+        selectPrio.appendChild(option);
+    }
+}
+
+export { createOptions , createNewTodoModal }

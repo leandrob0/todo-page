@@ -24,7 +24,11 @@ const myProjects = (function() {
         return false;
     }
 
-    return { addProject , removeProject , lengthArray , checkIfRepeated};
+    function returnNameProject(index) {
+        return project[index];
+    }
+
+    return { addProject , removeProject , lengthArray , checkIfRepeated , returnNameProject};
 })(); 
 
 export { myProjects };
