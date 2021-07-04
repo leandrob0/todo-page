@@ -7,10 +7,17 @@ import { myProjects } from './projects-module.js';
 //loads the whole page content
 contentLoader();
 
-//takes care of the logic of the add new project button
+/* 
+#################################################
+
+    ALL THE LOGIC OF THE ADD NEW PROJECT BUTTON
+
+#################################################
+*/
 const buttonNewProject = document.querySelector('.new-project');
 const buttonConfirmProject = document.querySelector('.button-title');
 
+//this function is called in the confirm button event listener
 function projectConfirmed() {
     const backdrop = document.querySelector('.backdrop-modal');
     const modal = document.querySelector('.modal-project');
@@ -47,4 +54,21 @@ buttonNewProject.addEventListener('click', () => {
         backdrop.style.display = 'none';
         modal.style.display = 'none';
     });
+});
+
+/* 
+#################################################
+
+    ALL THE LOGIC OF THE ADD NEW TODO BUTTON
+
+#################################################
+*/
+const buttonTodo = document.querySelector('.inner-button');
+
+buttonTodo.addEventListener('click', () => {
+    const backdrop = document.querySelector('.backdrop-modal');
+    const modalTodo = document.querySelector('.modal-todo');
+
+    backdrop.style.display = 'block';
+    modalTodo.style.display = 'flex';
 });

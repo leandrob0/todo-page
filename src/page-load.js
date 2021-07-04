@@ -1,9 +1,10 @@
 import './style.css';
 import Icon from './logo.svg';
 import { sidebarLoad } from './sidebar-load.js';
-import { showTodos } from './todos-load.js';
+import { addTodoButton , showTodos } from './todos-load.js';
 import { addNewProjectLoad , projectsNameLoad } from './projects-load';
 import { createNewProjectModal } from './new-project-modal.js';
+import { createNewTodoModal } from './new-todo-modal.js';
 
 /*
     ##
@@ -59,9 +60,11 @@ function contentLoader() {
     showTodos();
     addNewProjectLoad();
     projectsNameLoad();
+    addTodoButton();
 
     //Creates the modal for when the new project button is clicked
     createNewProjectModal();
+    createNewTodoModal();
 
 }
 

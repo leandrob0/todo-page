@@ -205,6 +205,43 @@ body {
     text-shadow: 0 0 2px #999;
 }
 
+/* STYLING BUTTON TO ADD TODOS */
+.button-todo {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+
+    text-align: center;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background-color: #607196;
+
+    overflow: hidden;
+}
+
+.inner-button {
+    position:relative;
+    top: -30px;
+    right: 1px;
+
+    height: 60px;
+    width: 60px;
+
+    font-size: 5rem;
+    font-weight: 800;
+
+    transition: 0.2s ease-in-out;
+}
+
+.inner-button:hover {
+    cursor: pointer;
+    text-shadow: 0 0 5px #333;
+}
+
 /*
 ##################################
     MODAL TO ADD A NEW PROJECT STYLING
@@ -269,4 +306,31 @@ body {
 .button-title:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+/*
+#####################
+    STYLE TODO MODAL
+#####################
+*/
+
+.modal-todo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: white;
+    color: black;
+
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 50%;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+    z-index: 1;
 }

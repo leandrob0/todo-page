@@ -3,7 +3,7 @@ import './style.css';
 
 function showTodos() {
     for(let i = 0; i < myTodos.todo.length; i++) {
-        const containerTodos = document.querySelector('.lists-container')
+        const containerTodos = document.querySelector('.lists-container');
 
         const totalContainer = document.createElement('div');
         const leftSideDiv = document.createElement('div');
@@ -44,4 +44,19 @@ function showTodos() {
     }
 }
 
-export { showTodos };
+function addTodoButton() {
+    const containerTodos = document.querySelector('.lists-container');
+
+    const buttonTodo = document.createElement('div');
+    const innerButton = document.createElement('div');
+
+    buttonTodo.classList.add('button-todo');
+    innerButton.classList.add('inner-button');
+
+    innerButton.textContent = "+";
+
+    buttonTodo.appendChild(innerButton);
+    containerTodos.appendChild(buttonTodo);
+}
+
+export { addTodoButton , showTodos };
