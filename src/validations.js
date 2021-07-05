@@ -1,4 +1,5 @@
 import { myProjects } from './projects-module.js';
+import { myTodos } from './todos-module.js';
 
 function checkIfValid(title) {
     if(title.length > 10) {
@@ -9,6 +10,9 @@ function checkIfValid(title) {
     }
     if(myProjects.checkIfRepeated(title) == true) {
         return 2;
+    }
+    if(myTodos.checkIfRepeated(title) == true) {
+        return 4; 
     }
 
     return 0;

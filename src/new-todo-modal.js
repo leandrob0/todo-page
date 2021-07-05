@@ -35,6 +35,8 @@ function createNewTodoModal() {
     inputDate.setAttribute('type','date');
     inputDate.classList.add('inputDate-todo');
     date.classList.add('todo-label');
+    let today = new Date().toISOString().slice(0, 10); //get current date and set it to the minimum date
+    inputDate.setAttribute('min', today);
 
     priority.classList.add('todo-label');
     inputPrio.classList.add('inputPrio-todo');
@@ -48,7 +50,7 @@ function createNewTodoModal() {
     title.textContent = "Todo name: ";
     description.textContent = "Description: ";
     date.textContent = "Target date: ";
-    priority.textContent = "Prioroty: ";
+    priority.textContent = "Priority: ";
     project.textContent = "Project: ";
     buttonAccept.textContent = "Confirm";
 
