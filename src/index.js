@@ -3,7 +3,7 @@ import { contentLoader } from './page-load.js';
 import { checkIfValid } from './check-repeated.js';
 import { createdProject } from './projects-load.js';
 import { myProjects } from './projects-module.js';
-import { createOptions } from './new-todo-modal.js';
+import { removeOptions , createOptions } from './new-todo-modal.js';
 
 //loads the whole page content
 contentLoader();
@@ -73,6 +73,8 @@ buttonTodo.addEventListener('click', () => {
     const backdrop = document.querySelector('.backdrop-modal');
     const modalTodo = document.querySelector('.modal-todo');
 
+    //dinamically creates the projects options in case i created another project
+    removeOptions(); 
     createOptions();
 
     backdrop.style.display = 'block';

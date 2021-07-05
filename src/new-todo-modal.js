@@ -45,11 +45,11 @@ function createNewTodoModal() {
     buttonAccept.classList.add('buttonModal-todo');
     modal.classList.add('modal-todo');
 
-    title.textContent = "Set your project name: ";
-    description.textContent = "Enter a description for the todo: ";
-    date.textContent = "Enter an target date for the todo: ";
-    priority.textContent = "Select a priority for the todo: ";
-    project.textContent = "Select the project for the todo: ";
+    title.textContent = "Todo name: ";
+    description.textContent = "Description: ";
+    date.textContent = "Target date: ";
+    priority.textContent = "Prioroty: ";
+    project.textContent = "Project: ";
     buttonAccept.textContent = "Confirm";
 
     modal.appendChild(title);
@@ -94,4 +94,17 @@ function createOptions() {
     }
 }
 
-export { createOptions , createNewTodoModal }
+function removeOptions() {
+    const select = document.querySelector('.inputProject-todo');
+    const selectPrio = document.querySelector('.inputPrio-todo');
+
+    while(select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+
+    while(selectPrio.firstChild) {
+        selectPrio.removeChild(selectPrio.firstChild);
+    }
+}
+
+export { removeOptions , createOptions , createNewTodoModal }
