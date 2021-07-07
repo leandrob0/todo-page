@@ -1,5 +1,6 @@
 import { myTodos } from './todos-module.js';
 import './style.css';
+import deleteIcon from './bin.svg';
 
 function showTodos() {
     for(let i = 0; i < myTodos.lengthArray(); i++) {
@@ -13,7 +14,6 @@ function showTodos() {
         const dateDiv = document.createElement('div');
         const detailsDiv = document.createElement('div');
         const editDiv = document.createElement('div');
-        const deleteDiv = document.createElement('div');
 
         totalContainer.classList.add('container-todo');
         leftSideDiv.classList.add('side-div');
@@ -23,18 +23,22 @@ function showTodos() {
         dateDiv.classList.add('date-todo');
         detailsDiv.classList.add('details-todo');
         editDiv.classList.add('edit-todo');
-        deleteDiv.classList.add('delete-todo');
 
         title.textContent = myTodos.todo[i]['Title'];
         dateDiv.textContent = myTodos.todo[i]['Date'];
         detailsDiv.textContent = 'DETAILS';
+        
+        const myIcon = new Image();
+        myIcon.src = deleteIcon;
+        myIcon.classList.add('delete-todo');
+        myIcon.setAttribute('alt', 'Icons made by https://www.flaticon.com/authors/ddara - dDara');
 
         leftSideDiv.appendChild(checkbox);
         leftSideDiv.appendChild(title);
         rigthSideDiv.appendChild(detailsDiv);
         rigthSideDiv.appendChild(dateDiv);
         rigthSideDiv.appendChild(editDiv);
-        rigthSideDiv.appendChild(deleteDiv);
+        rigthSideDiv.appendChild(myIcon);
 
         totalContainer.appendChild(leftSideDiv);
         totalContainer.appendChild(rigthSideDiv);
@@ -70,7 +74,6 @@ function addLastTodo() {
     const dateDiv = document.createElement('div');
     const detailsDiv = document.createElement('div');
     const editDiv = document.createElement('div');
-    const deleteDiv = document.createElement('div');
 
     totalContainer.classList.add('container-todo');
     leftSideDiv.classList.add('side-div');
@@ -80,18 +83,22 @@ function addLastTodo() {
     dateDiv.classList.add('date-todo');
     detailsDiv.classList.add('details-todo');
     editDiv.classList.add('edit-todo');
-    deleteDiv.classList.add('delete-todo');
 
     title.textContent = myTodos.todo[(myTodos.todo.length) - 1]['Title'];
     dateDiv.textContent = myTodos.todo[(myTodos.todo.length) - 1]['Date'];
     detailsDiv.textContent = 'DETAILS';
+
+    const myIcon = new Image();
+    myIcon.src = deleteIcon;
+    myIcon.classList.add('delete-todo');
+    myIcon.setAttribute('alt', 'Icons made by https://www.flaticon.com/authors/ddara - dDara');
 
     leftSideDiv.appendChild(checkbox);
     leftSideDiv.appendChild(title);
     rigthSideDiv.appendChild(detailsDiv);
     rigthSideDiv.appendChild(dateDiv);
     rigthSideDiv.appendChild(editDiv);
-    rigthSideDiv.appendChild(deleteDiv);
+    rigthSideDiv.appendChild(myIcon);
 
     totalContainer.appendChild(leftSideDiv);
     totalContainer.appendChild(rigthSideDiv);

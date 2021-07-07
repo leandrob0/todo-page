@@ -88,7 +88,7 @@ function todoConfirmed() {
         alert('The title selected is already in use.');
     }
 
-    if(checkIfValid(desc) == 1 || checkIfValid(desc) == 3) {
+    if(checkIfValid(desc) == 3) {
         alert('The description is invalid.');
     }
 
@@ -123,3 +123,11 @@ buttonTodo.addEventListener('click', () => {
         modalTodo.style.display = 'none';
     });
 });
+
+/* 
+#################################################
+
+    ALL THE LOGIC OF THE TRASH BUTTON
+
+#################################################
+*/

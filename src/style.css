@@ -165,11 +165,33 @@ body {
 
     border-radius: 5px;
     border: 1px solid rgb(41, 122, 41);
+
+    transition: 0.3s ease-in-out;
 }
 
 .date-todo {
     margin-left: 20px;
     font-size: 12px;
+}
+
+.delete-todo {
+    padding: 4px;
+    width: 25px;
+    height: 25px;
+
+    margin-left: 10px;
+
+    transition: 0.3s ease-in-out;
+}
+
+.details-todo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.delete-todo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /*single project*/
