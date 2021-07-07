@@ -123,11 +123,3 @@ buttonTodo.addEventListener('click', () => {
         modalTodo.style.display = 'none';
     });
 });
-
-/* 
-#################################################
-
-    ALL THE LOGIC OF THE TRASH BUTTON
-
-#################################################
-*/

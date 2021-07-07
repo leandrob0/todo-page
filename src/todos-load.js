@@ -32,6 +32,9 @@ function showTodos() {
         myIcon.src = deleteIcon;
         myIcon.classList.add('delete-todo');
         myIcon.setAttribute('alt', 'Icons made by https://www.flaticon.com/authors/ddara - dDara');
+        myIcon.addEventListener('click', () => {
+            containerTodos.removeChild(myIcon.parentNode.parentNode);
+        });
 
         leftSideDiv.appendChild(checkbox);
         leftSideDiv.appendChild(title);
@@ -92,6 +95,9 @@ function addLastTodo() {
     myIcon.src = deleteIcon;
     myIcon.classList.add('delete-todo');
     myIcon.setAttribute('alt', 'Icons made by https://www.flaticon.com/authors/ddara - dDara');
+    myIcon.addEventListener('click', () => {
+        containerTodos.removeChild(myIcon.parentNode.parentNode);
+    });
 
     leftSideDiv.appendChild(checkbox);
     leftSideDiv.appendChild(title);
