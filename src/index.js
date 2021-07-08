@@ -132,7 +132,7 @@ buttonTodo.addEventListener('click', () => {
 /* 
 #################################################
 
-    ALL THE LOGIC OF THE SIDEBAR OPTIONS TO SHOW TODOS
+    SIDEBAR OPTIONS TO SHOW TODOS
 
 #################################################
 */
