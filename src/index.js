@@ -5,7 +5,7 @@ import { createdProject } from './projects-load.js';
 import { myProjects } from './projects-module.js';
 import { removeOptions , createOptions } from './new-todo-modal.js';
 import { myTodos } from './todos-module';
-import { addLastTodo } from './todos-load';
+import { loadTodayTodos, showTodos , loadThisWeekTodos, addedTodo} from './todos-load';
 
 //loads the whole page content
 contentLoader();
@@ -26,7 +26,6 @@ function projectConfirmed() {
     const modal = document.querySelector('.modal-project');
 
     let titleValue = document.querySelector('.input-title').value;
-    console.log(titleValue);
     
     if(checkIfValid(titleValue) == 1) {
         alert(`The project title "${titleValue}" is too long(10 characters max).`);
@@ -84,23 +83,29 @@ function todoConfirmed() {
 
     if(checkIfValid(title) == 1 || checkIfValid(title) == 3) {
         alert('The title selected is invalid.');
+        return;
     } else if(checkIfValid(title) == 4) {
         alert('The title selected is already in use.');
+        return;
     }
 
     if(checkIfValid(desc) == 3) {
         alert('The description is invalid.');
+        return;
     }
 
     if(date == undefined) {
         alert('The date is invalid.');
+        return;
     }
 
     myTodos.addToDo(title,desc,date,prio,project);
-    addLastTodo();
 
     backdrop.style.display = 'none';
     modal.style.display = 'none';
+
+    //goes to the home tab
+    showTodos();
 
     buttonConfirmTodo.removeEventListener('click', todoConfirmed);
 }
@@ -123,3 +128,18 @@ buttonTodo.addEventListener('click', () => {
         modalTodo.style.display = 'none';
     });
 });
+
+/* 
+#################################################
+
+    ALL THE LOGIC OF THE SIDEBAR OPTIONS TO SHOW TODOS
+
+#################################################
+*/
+const homeTodos = document.querySelector('#home-bar');
+const todayTodos = document.querySelector('#today-bar');
+const weekTodos = document.querySelector('#week-bar');
+
+homeTodos.addEventListener('click', showTodos);
+todayTodos.addEventListener('click', loadTodayTodos);
+weekTodos.addEventListener('click', loadThisWeekTodos);

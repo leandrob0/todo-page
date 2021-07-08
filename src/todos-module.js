@@ -2,15 +2,7 @@ import { compareAsc, format } from 'date-fns'
 
 const myTodos = (function() {
 
-    let todo = [
-        {
-            Title: 'default',
-            Description: 'default',
-            Date: '2021',
-            Priority: 'High',
-            Project: 'Hello',
-        }
-        ];
+    let todo = [];
 
     function addToDo(title,desc,date,prio,pro) {
         todo.push({Title: title, Description: desc, Date: date, Priority: prio, Project: pro});

@@ -1,6 +1,6 @@
 const myProjects = (function() {
 
-    let project = ['Hello'];
+    let project = [];
 
     function addProject(title) {
         project.push(title);

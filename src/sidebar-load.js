@@ -9,8 +9,11 @@ function sidebarLoad() {
     const projectsBar = document.createElement('span');
 
     homeBar.classList.add('span-sidebar');
+    homeBar.setAttribute('id', 'home-bar');
     todayBar.classList.add('span-sidebar');
+    todayBar.setAttribute('id', 'today-bar');
     weekBar.classList.add('span-sidebar');
+    weekBar.setAttribute('id', 'week-bar');
     projectsBar.classList.add('span-projects');
 
     homeBar.textContent = 'Home';
