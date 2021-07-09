@@ -30,7 +30,21 @@ const myTodos = (function() {
         return todo[index];
     }
 
-    return { todo , lengthArray , addToDo , removeToDo , checkIfRepeated , returnTodo};
+    function saveInLocalStorage() {
+        if (typeof(Storage) !== 'undefined') {
+            localStorage.setItem("todos", JSON.stringify(todo));
+        } else {
+            return;
+        }
+    }
+
+    function getFromLocalStorage() {
+        if(JSON.parse(localStorage.getItem("todos")) !== null) {
+            todo = JSON.parse(localStorage.getItem("todos"));
+        } else {return};
+    }
+
+    return { todo , lengthArray , addToDo , removeToDo , checkIfRepeated , returnTodo , saveInLocalStorage , getFromLocalStorage};
 })(); 
 
 export { myTodos };

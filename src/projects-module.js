@@ -28,7 +28,37 @@ const myProjects = (function() {
         return project[index];
     }
 
-    return { addProject , removeProject , lengthArray , checkIfRepeated , returnNameProject};
+    function saveInLocalStorage() {
+        if (typeof(Storage) !== 'undefined') {
+            localStorage.setItem("projects", JSON.stringify(project));
+        } else {
+            return;
+        }
+    }
+
+    function getFromLocalStorage() {
+        if(JSON.parse(localStorage.getItem("projects")) !== null) {
+            project = JSON.parse(localStorage.getItem("projects"));
+        } else {return};
+    }
+
+    function removeSpecificItem(title) {
+        getFromLocalStorage();
+
+        if(indexOf(title) === -1) {
+            return;
+        } else {
+            project.splice(indexOf(title),1);
+        }
+
+        if (typeof(Storage) !== 'undefined') {
+            localStorage.setItem("projects", JSON.stringify(project));
+        } else {
+            return;
+        }
+    }
+
+    return { addProject , removeProject , lengthArray , checkIfRepeated , returnNameProject , saveInLocalStorage , getFromLocalStorage , removeSpecificItem};
 })(); 
 
 export { myProjects };

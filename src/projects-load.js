@@ -16,6 +16,8 @@ function addNewProjectLoad() {
 
 function projectsNameLoad() {
 
+    myProjects.getFromLocalStorage();
+
     //CREATES A PROJECT SPAN FOR EVERY UNIQUE PROJECT NAME
     for(let i = 0; i < myProjects.lengthArray(); i++) {
       const sidebar = document.querySelector('.sidebar');

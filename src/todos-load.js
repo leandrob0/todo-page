@@ -9,6 +9,8 @@ function showTodos() {
         element.parentNode.removeChild(element);
     });
 
+    myTodos.getFromLocalStorage();
+
     for(let i = 0; i < myTodos.lengthArray(); i++) {
         createTheWholeTodo(i);
     }
@@ -37,6 +39,7 @@ function loadTodayTodos() {
     });
 
     let today = new Date().toISOString().slice(0, 10);
+    myTodos.getFromLocalStorage();
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
 
@@ -58,6 +61,7 @@ function loadThisWeekTodos() {
     });
 
     let today = new Date().toISOString().slice(0, 10);
+    myTodos.getFromLocalStorage();
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
 
@@ -99,6 +103,8 @@ function loadProjectTodo(project) {
     Array.from(everyTodo).forEach(element => {
         element.parentNode.removeChild(element);
     });
+
+    myTodos.getFromLocalStorage();
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
         if(project == myTodos.todo[i]['Project']) {

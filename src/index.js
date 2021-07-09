@@ -5,7 +5,14 @@ import { createdProject } from './projects-load.js';
 import { myProjects } from './projects-module.js';
 import { removeOptions , createOptions } from './new-todo-modal.js';
 import { myTodos } from './todos-module';
-import { loadTodayTodos, showTodos , loadThisWeekTodos, addedTodo} from './todos-load';
+import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
+
+
+//BUGS################################################################
+//FIX PROJECTS APPEAR TWICE WITH LOCAL STORAGE AND CANT SHOW MORE THAN 1 
+//TODO WITH LOCALSTORAGE.
+
+
 
 //loads the whole page content
 contentLoader();
@@ -38,6 +45,7 @@ function projectConfirmed() {
         backdrop.style.display = 'none';
         modal.style.display = 'none';
         myProjects.addProject(titleValue);
+        myProjects.saveInLocalStorage();
         buttonConfirmProject.removeEventListener('click', projectConfirmed);
     }
 }

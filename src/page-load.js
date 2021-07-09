@@ -5,6 +5,8 @@ import { addTodoButton , showTodos } from './todos-load.js';
 import { addNewProjectLoad , projectsNameLoad } from './projects-load';
 import { createNewProjectModal } from './new-project-modal.js';
 import { createNewTodoModal } from './new-todo-modal.js';
+import { myTodos } from './todos-module';
+import { myProjects } from './projects-module';
 
 /*
     ##
@@ -55,8 +57,8 @@ function contentLoader() {
 
     containerTotal.appendChild(lists);
 
-    //this 3 lines first render the todo's then the 'button' to add new projects 
-    //and then the projects already created
+    //this lines first render the todo's then the 'button' to add new projects 
+    //and then the projects already created and the button to add new todos
     showTodos();
     addNewProjectLoad();
     projectsNameLoad();
