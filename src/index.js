@@ -9,10 +9,10 @@ import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
 
 
 //BUGS################################################################
-//FIX PROJECTS APPEAR TWICE WITH LOCAL STORAGE AND CANT SHOW MORE THAN 1 
-//TODO WITH LOCALSTORAGE.
+//FIX TODO WITH LOCALSTORAGE (TODO ARRAY DOESN'T ADD MORE THAN 1 TODO).
+//IN THE FUNCION GETFROMLOCALSTORAGE FROM TODOS-MODULE.JS
 
-//localStorage.clear();
+localStorage.clear();
 
 //loads the whole page content
 contentLoader();

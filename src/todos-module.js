@@ -40,8 +40,8 @@ const myTodos = (function() {
 
     function getFromLocalStorage() {
         if(JSON.parse(localStorage.getItem("todos")) !== null) {
-            todo = [];
             todo = JSON.parse(localStorage.getItem("todos"));
+            console.log(`todos: ${todo} ${todo.length}`);
         } else {return};
     }
 

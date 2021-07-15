@@ -12,6 +12,7 @@ function showTodos() {
     myTodos.getFromLocalStorage();
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
+        myTodos.getFromLocalStorage();
         createTheWholeTodo(i);
     }
 }
@@ -116,7 +117,6 @@ function loadProjectTodo(project) {
 function createTheWholeTodo(index) {
     const containerTodos = document.querySelector('.lists-container');
 
-    console.log(localStorage.getItem('todos'));
     console.log(myTodos.todo);
 
     const totalContainer = document.createElement('div');
