@@ -40,6 +40,7 @@ const myTodos = (function() {
 
     function getFromLocalStorage() {
         if(JSON.parse(localStorage.getItem("todos")) !== null) {
+            todo = [];
             todo = JSON.parse(localStorage.getItem("todos"));
         } else {return};
     }

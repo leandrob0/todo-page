@@ -116,6 +116,9 @@ function loadProjectTodo(project) {
 function createTheWholeTodo(index) {
     const containerTodos = document.querySelector('.lists-container');
 
+    console.log(localStorage.getItem('todos'));
+    console.log(myTodos.todo);
+
     const totalContainer = document.createElement('div');
     const leftSideDiv = document.createElement('div');
     const rigthSideDiv = document.createElement('div');
@@ -134,8 +137,8 @@ function createTheWholeTodo(index) {
     detailsDiv.classList.add('details-todo');
     editDiv.classList.add('edit-todo');
 
-    title.textContent = myTodos.todo[index]['Title'];
-    dateDiv.textContent = myTodos.todo[index]['Date'];
+    title.textContent = myTodos.todo[index]["Title"];
+    dateDiv.textContent = myTodos.todo[index]["Date"];
     detailsDiv.textContent = 'DETAILS';
 
     const myIcon = new Image();

@@ -6,7 +6,6 @@ import { addNewProjectLoad , projectsNameLoad } from './projects-load';
 import { createNewProjectModal } from './new-project-modal.js';
 import { createNewTodoModal } from './new-todo-modal.js';
 import { myTodos } from './todos-module';
-import { myProjects } from './projects-module';
 
 /*
     ##

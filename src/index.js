@@ -12,7 +12,7 @@ import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
 //FIX PROJECTS APPEAR TWICE WITH LOCAL STORAGE AND CANT SHOW MORE THAN 1 
 //TODO WITH LOCALSTORAGE.
 
-
+//localStorage.clear();
 
 //loads the whole page content
 contentLoader();
@@ -44,7 +44,6 @@ function projectConfirmed() {
         createdProject(titleValue);
         backdrop.style.display = 'none';
         modal.style.display = 'none';
-        myProjects.addProject(titleValue);
         myProjects.saveInLocalStorage();
         buttonConfirmProject.removeEventListener('click', projectConfirmed);
     }
@@ -108,6 +107,7 @@ function todoConfirmed() {
     }
 
     myTodos.addToDo(title,desc,date,prio,project);
+    myTodos.saveInLocalStorage();
 
     backdrop.style.display = 'none';
     modal.style.display = 'none';
