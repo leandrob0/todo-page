@@ -9,10 +9,10 @@ function showTodos() {
         element.parentNode.removeChild(element);
     });
 
-    myTodos.getFromLocalStorage();
+    let todos = JSON.parse(localStorage.getItem("allEntries"));
+    if(todos === null) todos = [];
 
-    for(let i = 0; i < myTodos.lengthArray(); i++) {
-        myTodos.getFromLocalStorage();
+    for(let i = 0; i < todos.length; i++) {
         createTheWholeTodo(i);
     }
 }
@@ -40,7 +40,7 @@ function loadTodayTodos() {
     });
 
     let today = new Date().toISOString().slice(0, 10);
-    myTodos.getFromLocalStorage();
+    let todos = JSON.parse(localStorage.getItem("allEntries"));
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
 
@@ -62,7 +62,7 @@ function loadThisWeekTodos() {
     });
 
     let today = new Date().toISOString().slice(0, 10);
-    myTodos.getFromLocalStorage();
+    let todos = JSON.parse(localStorage.getItem("allEntries"));
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
 
@@ -105,7 +105,7 @@ function loadProjectTodo(project) {
         element.parentNode.removeChild(element);
     });
 
-    myTodos.getFromLocalStorage();
+    let todos = JSON.parse(localStorage.getItem("allEntries"));
 
     for(let i = 0; i < myTodos.lengthArray(); i++) {
         if(project == myTodos.todo[i]['Project']) {
@@ -117,7 +117,7 @@ function loadProjectTodo(project) {
 function createTheWholeTodo(index) {
     const containerTodos = document.querySelector('.lists-container');
 
-    console.log(myTodos.todo);
+    let todos = JSON.parse(localStorage.getItem("allEntries"));
 
     const totalContainer = document.createElement('div');
     const leftSideDiv = document.createElement('div');
@@ -137,8 +137,8 @@ function createTheWholeTodo(index) {
     detailsDiv.classList.add('details-todo');
     editDiv.classList.add('edit-todo');
 
-    title.textContent = myTodos.todo[index]["Title"];
-    dateDiv.textContent = myTodos.todo[index]["Date"];
+    title.textContent = todos[index]["Title"];
+    dateDiv.textContent = todos[index]["Date"];
     detailsDiv.textContent = 'DETAILS';
 
     const myIcon = new Image();

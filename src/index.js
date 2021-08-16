@@ -9,8 +9,8 @@ import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
 
 
 //BUGS################################################################
-//FIX TODO WITH LOCALSTORAGE (TODO ARRAY DOESN'T ADD MORE THAN 1 TODO).
-//IN THE FUNCION GETFROMLOCALSTORAGE FROM TODOS-MODULE.JS
+//FIX TODO WITH LOCALSTORAGE (TODO ARRAY DOESN'T ADD MORE THAN 2 TODO).
+//THE TODO.LENGTH IN TODOS-LOAD DOESN'T WORK.
 
 localStorage.clear();
 
@@ -106,8 +106,7 @@ function todoConfirmed() {
         return;
     }
 
-    myTodos.addToDo(title,desc,date,prio,project);
-    myTodos.saveInLocalStorage();
+    myTodos.saveInLocalStorage(title,desc,date,prio,project);
 
     backdrop.style.display = 'none';
     modal.style.display = 'none';

@@ -1,5 +1,3 @@
-import { compareAsc, format } from 'date-fns'
-
 const myTodos = (function() {
 
     let todo = [];
@@ -30,22 +28,32 @@ const myTodos = (function() {
         return todo[index];
     }
 
-    function saveInLocalStorage() {
+    function saveInLocalStorage(title,desc,date,prio,pro) {
         if (typeof(Storage) !== 'undefined') {
-            localStorage.setItem("todos", JSON.stringify(todo));
+
+            //CODE COPIED FROM https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
+            let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+
+            if(existingEntries === null) existingEntries = [];
+            
+            let entry = {
+                Title: title,
+                Description: desc,
+                Date: date,
+                Priority: prio,
+                Project: pro
+            }
+
+            localStorage.setItem("entry", JSON.stringify(entry));
+            existingEntries.push(entry);
+            localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+
         } else {
             return;
         }
     }
 
-    function getFromLocalStorage() {
-        if(JSON.parse(localStorage.getItem("todos")) !== null) {
-            todo = JSON.parse(localStorage.getItem("todos"));
-            console.log(`todos: ${todo} ${todo.length}`);
-        } else {return};
-    }
-
-    return { todo , lengthArray , addToDo , removeToDo , checkIfRepeated , returnTodo , saveInLocalStorage , getFromLocalStorage};
+    return { todo , lengthArray , addToDo , removeToDo , checkIfRepeated , returnTodo , saveInLocalStorage};
 })(); 
 
 export { myTodos };
