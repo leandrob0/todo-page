@@ -7,13 +7,6 @@ import { removeOptions , createOptions } from './new-todo-modal.js';
 import { myTodos } from './todos-module';
 import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
 
-
-//BUGS################################################################
-//FIX TODO WITH LOCALSTORAGE (TODO ARRAY DOESN'T ADD MORE THAN 2 TODO).
-//THE TODO.LENGTH IN TODOS-LOAD DOESN'T WORK.
-
-localStorage.clear();
-
 //loads the whole page content
 contentLoader();
 

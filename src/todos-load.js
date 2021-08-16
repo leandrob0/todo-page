@@ -42,9 +42,9 @@ function loadTodayTodos() {
     let today = new Date().toISOString().slice(0, 10);
     let todos = JSON.parse(localStorage.getItem("allEntries"));
 
-    for(let i = 0; i < myTodos.lengthArray(); i++) {
+    for(let i = 0; i < todos.length; i++) {
 
-        let isToday = myTodos.todo[i]['Date'].split('-');
+        let isToday = todos[i]['Date'].split('-');
         let isToday2 = today.split('-');
 
         //CHECKS THE LAST VALUE OF THE DATE WHICH IS THE DAY, IF THAT IS THE SAME, THE TODO SHOWS
@@ -64,9 +64,9 @@ function loadThisWeekTodos() {
     let today = new Date().toISOString().slice(0, 10);
     let todos = JSON.parse(localStorage.getItem("allEntries"));
 
-    for(let i = 0; i < myTodos.lengthArray(); i++) {
+    for(let i = 0; i < todos.length; i++) {
 
-        let isToday = myTodos.todo[i]['Date'].split('-');
+        let isToday = todos[i]['Date'].split('-');
         let isToday2 = today.split('-');
 
         //CHECKS THE LAST VALUE OF THE DATE WHICH IS THE DAY, IF THAT IS THE SAME, THE TODO SHOWS
@@ -107,8 +107,8 @@ function loadProjectTodo(project) {
 
     let todos = JSON.parse(localStorage.getItem("allEntries"));
 
-    for(let i = 0; i < myTodos.lengthArray(); i++) {
-        if(project == myTodos.todo[i]['Project']) {
+    for(let i = 0; i < todos.length; i++) {
+        if(project == todos[i]['Project']) {
           createTheWholeTodo(i);
         }
       }

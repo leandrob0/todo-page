@@ -1,31 +1,28 @@
 const myTodos = (function() {
+    /*
 
-    let todo = [];
+    THE MISTAKES WERE DONE BY FIRST STARTING TO WORK WITH A LOCAL ARRAY
+    AND THEN TRYING TO WORK WITH LOCAL STORAGE WHEN I NEVER USED IT :)
 
-    function addToDo(title,desc,date,prio,pro) {
-        todo.push({Title: title, Description: desc, Date: date, Priority: prio, Project: pro});
-    }
+    WORKING DIRECTLY WITH LOCAL STORAGE INSTEAD OF USING THIS LOCAL ARRAY : let todo = [];
+    MADE EVERYTHING EASIER AND ALL THANKS TO THE STACKOVERFLOW QUESTION I PASTED BELOW.
 
+    */
     function removeToDo(title) {
-        let index = todo.indexOf(title);
-        todo.splice(index, 1);
-    }
-
-    function lengthArray() {
-        return todo.length;
+        let todos = JSON.parse(localStorage.getItem("allEntries"));
+        let index = todos.indexOf(title);
+        todos.splice(index, 1);
+        localStorage.setItem("allEntries", JSON.stringify(todos));
     }
 
     function checkIfRepeated(title) {
-        for(let i = 0; i < todo.length; i++) {
-            if(todo[i]['Title'] == title) {
+        let todos = JSON.parse(localStorage.getItem("allEntries"));
+        for(let i = 0; i < todos.length; i++) {
+            if(todos[i]['Title'] == title) {
                 return true;
             }
         }
         return false;
-    }
-
-    function returnTodo(index) {
-        return todo[index];
     }
 
     function saveInLocalStorage(title,desc,date,prio,pro) {
@@ -53,7 +50,7 @@ const myTodos = (function() {
         }
     }
 
-    return { todo , lengthArray , addToDo , removeToDo , checkIfRepeated , returnTodo , saveInLocalStorage};
+    return { removeToDo , checkIfRepeated , saveInLocalStorage};
 })(); 
 
 export { myTodos };
