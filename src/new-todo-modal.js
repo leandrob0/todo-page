@@ -79,8 +79,16 @@ function createOptions() {
 
     let prios = ['High','Medium','Low'];
 
-    for(let i = 0; i < myProjects.lengthArray(); i++) {
-        let name = myProjects.returnNameProject(i);
+    //NO PROJECT OPTION
+    const optionEmpty = document.createElement('option');
+    optionEmpty.textContent = "no project";
+
+    select.appendChild(optionEmpty);
+
+    let projects = JSON.parse(localStorage.getItem("allProjects"));
+
+    for(let i = 0; i < projects.length; i++) {
+        let name = projects[i];
 
         const option = document.createElement('option');
         option.textContent = name;

@@ -107,6 +107,29 @@ body {
     font-size: 1.9rem;
 }
 
+/*projects title and delete container*/
+.container-span-project {
+    display: flex;
+    justify-content: space-between;
+
+    width: 170px;
+}
+
+/*projects delete button*/
+.delete-span-project {
+    font-size: 1.2rem;
+    color: rgb(126, 22, 22);
+
+    align-self: center;
+
+    transition: 0.3s ease-in-out;
+}
+
+.delete-span-project:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 
 /*
 #############################

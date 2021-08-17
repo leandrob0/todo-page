@@ -10,6 +10,8 @@ import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
 //loads the whole page content
 contentLoader();
 
+//localStorage.clear();
+
 /* 
 #################################################
 
@@ -37,7 +39,7 @@ function projectConfirmed() {
         createdProject(titleValue);
         backdrop.style.display = 'none';
         modal.style.display = 'none';
-        myProjects.saveInLocalStorage();
+        myProjects.saveInLocalStorage(titleValue);
         buttonConfirmProject.removeEventListener('click', projectConfirmed);
     }
 }

@@ -15,6 +15,16 @@ const myTodos = (function() {
         localStorage.setItem("allEntries", JSON.stringify(todos));
     }
 
+    function removeToDos(projectName) {
+        let todos = JSON.parse(localStorage.getItem("allEntries"));
+        
+        todos.map((object,i) => {
+            if(object['Project'] === projectName) todos.splice(i,1);
+        });
+
+        localStorage.setItem("allEntries", JSON.stringify(todos));
+    }
+
     function checkIfRepeated(title) {
         let todos = JSON.parse(localStorage.getItem("allEntries"));
         if(todos === null) {
@@ -53,7 +63,7 @@ const myTodos = (function() {
         }
     }
 
-    return { removeToDo , checkIfRepeated , saveInLocalStorage};
+    return { removeToDo , removeToDos , checkIfRepeated , saveInLocalStorage};
 })(); 
 
 export { myTodos };

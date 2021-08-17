@@ -1,64 +1,48 @@
 const myProjects = (function() {
 
-    let project = [];
-
-    function addProject(title) {
-        project.push(title);
-    }
-
     function removeProject(title) {
-        let index = project.indexOf(title);
-        project.splice(index, 1);
-    }
+        let projects = JSON.parse(localStorage.getItem("allProjects"));
 
-    function lengthArray() {
-        return project.length;
+        let index = projects.indexOf(title);
+        projects.splice(index, 1);
+
+        localStorage.setItem("allProjects", JSON.stringify(projects));
     }
 
     function checkIfRepeated(title) {
-        for(let i = 0; i < project.length; i++) {
-            if(project[i] == title) {
+        let projects = JSON.parse(localStorage.getItem("allProjects"));
+
+        if(projects === null) {
+            projects = [];
+        }
+        for(let i = 0; i < projects.length; i++) {
+            if(projects[i] == title) {
                 return true;
             }
         }
         return false;
     }
 
-    function returnNameProject(index) {
-        return project[index];
-    }
-
-    function saveInLocalStorage() {
+    function saveInLocalStorage(title) {
         if (typeof(Storage) !== 'undefined') {
-            localStorage.setItem("projects", JSON.stringify(project));
+
+            //CODE COPIED FROM https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
+            let existingEntries = JSON.parse(localStorage.getItem("allProjects"));
+
+            if(existingEntries === null) existingEntries = [];
+            
+            let entry = title;
+
+            localStorage.setItem("entryProject", JSON.stringify(entry));
+            existingEntries.push(entry);
+            localStorage.setItem("allProjects", JSON.stringify(existingEntries));
+
         } else {
             return;
         }
     }
 
-    function getFromLocalStorage() {
-        if(JSON.parse(localStorage.getItem("projects")) !== null) {
-            project = JSON.parse(localStorage.getItem("projects"));
-        } else {return};
-    }
-
-    function removeSpecificItem(title) {
-        getFromLocalStorage();
-
-        if(indexOf(title) === -1) {
-            return;
-        } else {
-            project.splice(indexOf(title),1);
-        }
-
-        if (typeof(Storage) !== 'undefined') {
-            localStorage.setItem("projects", JSON.stringify(project));
-        } else {
-            return;
-        }
-    }
-
-    return { addProject , removeProject , lengthArray , checkIfRepeated , returnNameProject , saveInLocalStorage , getFromLocalStorage , removeSpecificItem};
+    return { removeProject , checkIfRepeated , saveInLocalStorage};
 })(); 
 
 export { myProjects };
