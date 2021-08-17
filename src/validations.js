@@ -1,4 +1,3 @@
-import { myProjects } from './projects-module.js';
 import { myTodos } from './todos-module.js';
 
 function checkIfValid(title) {
@@ -7,9 +6,6 @@ function checkIfValid(title) {
     }
     if(title.split('').every(elem => elem == ' ') || title == undefined) {
         return 3;
-    }
-    if(myProjects.checkIfRepeated(title) == true) {
-        return 2;
     }
     if(myTodos.checkIfRepeated(title) == true) {
         return 4; 

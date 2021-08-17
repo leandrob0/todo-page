@@ -29,10 +29,10 @@ function projectConfirmed() {
     
     if(checkIfValid(titleValue) == 1) {
         alert(`The project title "${titleValue}" is too long(10 characters max).`);
-    } else if(checkIfValid(titleValue) == 2) {
+    } else if(myProjects.checkIfRepeated(titleValue) == true) {
         alert(`The project title "${titleValue}" already exists.`);
     }else if(checkIfValid(titleValue) == 3){
-        alert(`The project title only contains white spaces.`);
+        alert(`The project title is empty.`);
     } else {
         createdProject(titleValue);
         backdrop.style.display = 'none';
@@ -81,9 +81,11 @@ function todoConfirmed() {
     let prio = document.querySelector('.inputPrio-todo').value;
     let project = document.querySelector('.inputProject-todo').value;
 
-    if(checkIfValid(title) == 1 || checkIfValid(title) == 3) {
-        alert('The title selected is invalid.');
+    if(checkIfValid(title) == 1) {
+        alert(`The project title "${title}" is too long(10 characters max).`);
         return;
+    } else if(checkIfValid(title) == 3){
+        alert(`The project title is empty.`);
     } else if(checkIfValid(title) == 4) {
         alert('The title selected is already in use.');
         return;
@@ -92,9 +94,9 @@ function todoConfirmed() {
     if(checkIfValid(desc) == 3) {
         alert('The description is invalid.');
         return;
-    }
+    }   
 
-    if(date == undefined) {
+    if(date === "") {
         alert('The date is invalid.');
         return;
     }

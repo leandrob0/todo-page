@@ -107,11 +107,15 @@ function loadProjectTodo(project) {
 
     let todos = JSON.parse(localStorage.getItem("allEntries"));
 
+    if(todos === null) {
+        todos = [];
+    }
+
     for(let i = 0; i < todos.length; i++) {
         if(project == todos[i]['Project']) {
           createTheWholeTodo(i);
         }
-      }
+    }
 }
 
 function createTheWholeTodo(index) {

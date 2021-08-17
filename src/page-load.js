@@ -5,7 +5,6 @@ import { addTodoButton , showTodos } from './todos-load.js';
 import { addNewProjectLoad , projectsNameLoad } from './projects-load';
 import { createNewProjectModal } from './new-project-modal.js';
 import { createNewTodoModal } from './new-todo-modal.js';
-import { myTodos } from './todos-module';
 
 /*
     ##

@@ -17,6 +17,9 @@ const myTodos = (function() {
 
     function checkIfRepeated(title) {
         let todos = JSON.parse(localStorage.getItem("allEntries"));
+        if(todos === null) {
+            todos = [];
+        }
         for(let i = 0; i < todos.length; i++) {
             if(todos[i]['Title'] == title) {
                 return true;
