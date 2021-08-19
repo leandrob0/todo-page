@@ -17,6 +17,7 @@ const myTodos = (function() {
 
     function removeToDos(projectName) {
         let todos = JSON.parse(localStorage.getItem("allEntries"));
+        if(todos === null) todos = [];
         
         todos.map((object,i) => {
             if(object['Project'] === projectName) todos.splice(i,1);

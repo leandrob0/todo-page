@@ -21,6 +21,28 @@ function sidebarLoad() {
     weekBar.textContent = 'Week';
     projectsBar.textContent = 'Projects';
 
+    let things = [homeBar,todayBar,weekBar];
+    
+    things.map((span) => {
+        span.addEventListener('click', () => {
+            const projects = document.querySelectorAll('.span-project');
+
+            Array.from(projects).forEach((project) => {
+                if(project.classList[1] === 'active-project'){
+                    project.classList.remove('active-project');
+                }
+            });
+
+            things.map((span) => {
+                if(span.classList[1] === 'active-project') {
+                    span.classList.remove('active-project');
+                }
+            });
+
+            span.classList.add('active-project');
+        });
+    });
+
     sidebar.appendChild(homeBar);
     sidebar.appendChild(todayBar);
     sidebar.appendChild(weekBar);

@@ -42,6 +42,8 @@ function loadTodayTodos() {
     let today = new Date().toISOString().slice(0, 10);
     let todos = JSON.parse(localStorage.getItem("allEntries"));
 
+    if(todos === null) todos = [];
+
     for(let i = 0; i < todos.length; i++) {
 
         let isToday = todos[i]['Date'].split('-');
@@ -63,6 +65,7 @@ function loadThisWeekTodos() {
 
     let today = new Date().toISOString().slice(0, 10);
     let todos = JSON.parse(localStorage.getItem("allEntries"));
+    if(todos === null) todos = [];
 
     for(let i = 0; i < todos.length; i++) {
 
@@ -122,6 +125,7 @@ function createTheWholeTodo(index) {
     const containerTodos = document.querySelector('.lists-container');
 
     let todos = JSON.parse(localStorage.getItem("allEntries"));
+    if(todos === null) todos = [];
 
     const totalContainer = document.createElement('div');
     const leftSideDiv = document.createElement('div');

@@ -23,7 +23,7 @@ function projectsNameLoad() {
     //CREATES A PROJECT SPAN FOR EVERY UNIQUE PROJECT NAME
     for(let i = 0; i < projects.length; i++) {
       const sidebar = document.querySelector('.sidebar');
-      const containerSpan = document.createElement('div');
+      const containerSpan = document.createElement('span');
       const projectSpan = document.createElement('span');
       const deleteSpan = document.createElement('span');
 
@@ -36,6 +36,24 @@ function projectsNameLoad() {
 
       projectSpan.addEventListener('click', () => {
         loadProjectTodo(projects[i]);
+
+        //TAKES CARE OF THE ACTIVE MENU ITEM STYLING
+        const everyProject = document.querySelectorAll('.span-project');
+        const everyDefaultProject = document.querySelectorAll('.span-sidebar');
+
+        Array.from(everyProject).forEach((project) => {
+          if(project.classList[1] === 'active-project') {
+            project.classList.remove('active-project');
+          }
+        });
+
+        Array.from(everyDefaultProject).forEach((project) => {
+          if(project.classList[1] === 'active-project') {
+            project.classList.remove('active-project');
+          }
+        });
+
+        projectSpan.classList.add("active-project");
       });
     
       deleteSpan.addEventListener('click', () => {
@@ -54,7 +72,7 @@ function projectsNameLoad() {
 function createdProject(projectName) {
   const sidebar = document.querySelector('.sidebar');
   const projectSpan = document.createElement('span');
-  const containerSpan = document.createElement('div');
+  const containerSpan = document.createElement('span');
   const deleteSpan = document.createElement('span');
 
   projectSpan.classList.add('span-project');
@@ -65,7 +83,26 @@ function createdProject(projectName) {
   deleteSpan.textContent = 'X';
 
   projectSpan.addEventListener('click', () => {
+
     loadProjectTodo(projectName);
+
+    //TAKES CARE OF THE ACTIVE MENU ITEM STYLING
+    const everyProject = document.querySelectorAll('.span-project');
+    const everyDefaultProject = document.querySelectorAll('.span-sidebar');
+
+    Array.from(everyProject).forEach((project) => {
+      if(project.classList[1] === 'active-project') {
+        project.classList.remove('active-project');
+      }
+    });
+
+    Array.from(everyDefaultProject).forEach((project) => {
+      if(project.classList[1] === 'active-project') {
+        project.classList.remove('active-project');
+      }
+    });
+    
+    projectSpan.classList.add("active-project");
   });
 
   deleteSpan.addEventListener('click', () => {
