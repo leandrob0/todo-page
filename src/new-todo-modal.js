@@ -86,6 +86,7 @@ function createOptions() {
     select.appendChild(optionEmpty);
 
     let projects = JSON.parse(localStorage.getItem("allProjects"));
+    if(projects === null) projects = [];
 
     for(let i = 0; i < projects.length; i++) {
         let name = projects[i];

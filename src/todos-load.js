@@ -157,6 +157,17 @@ function createTheWholeTodo(index) {
         myTodos.removeToDo(myIcon.parentNode.firstChild.lastChild.textContent);
         containerTodos.removeChild(myIcon.parentNode.parentNode);
     });
+    //THIS EVENT LISTENER IS COPIED FROM https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation
+    checkbox.addEventListener('click', () => {
+        checkbox.parentElement.parentElement.style.opacity = '0';
+        window.setTimeout( function removethis() {
+            checkbox.parentElement.parentElement.style.display='none';
+        }, 300);
+        window.setTimeout(() => {
+            myTodos.removeToDo(checkbox.nextSibling.textContent);
+            containerTodos.removeChild(checkbox.parentElement.parentElement);
+        }, 300);
+    });
 
     leftSideDiv.appendChild(checkbox);
     leftSideDiv.appendChild(title);

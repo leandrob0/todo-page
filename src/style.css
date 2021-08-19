@@ -156,11 +156,15 @@ body {
     margin: 1rem;
     background-color: #dde1f0;
     color: black;
+    opacity:1;
 
     border: 1px solid #999;
     border-radius: 5px;
 
     overflow: hidden;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
 }
 
 .side-div {
