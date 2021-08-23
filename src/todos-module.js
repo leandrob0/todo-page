@@ -10,9 +10,17 @@ const myTodos = (function() {
     */
     function removeToDo(title) {
         let todos = JSON.parse(localStorage.getItem("allEntries"));
+        if(todos === null) todos = [];
         let index = todos.indexOf(title);
         todos.splice(index, 1);
         localStorage.setItem("allEntries", JSON.stringify(todos));
+    }
+
+    function findToDo(title) {
+        let todos = JSON.parse(localStorage.getItem("allEntries"));
+        if(todos === null) todos = [];
+        let index = todos.indexOf(title);
+        return index;
     }
 
     function removeToDos(projectName) {
@@ -64,7 +72,7 @@ const myTodos = (function() {
         }
     }
 
-    return { removeToDo , removeToDos , checkIfRepeated , saveInLocalStorage};
+    return { removeToDo , findToDo , removeToDos , checkIfRepeated , saveInLocalStorage};
 })(); 
 
 export { myTodos };

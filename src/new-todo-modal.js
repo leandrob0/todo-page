@@ -1,5 +1,5 @@
 import './style.css';
-import { myProjects } from './projects-module.js';
+import { myTodos } from './todos-module.js';
 
 function createNewTodoModal() {
     const body = document.querySelector('body');
@@ -73,11 +73,82 @@ function createNewTodoModal() {
     body.appendChild(modal);
 }
 
+function showDetailsModal(titleTodo) {
+
+    let todos = JSON.parse(localStorage.getItem("allEntries"));
+    let indexTitle = myTodos.findToDo(titleTodo);
+
+    let body = document.querySelector('body');
+    let modalDetails = document.createElement('div');
+
+    let title = document.createElement('h2');
+    let titleContent = document.createElement('p');
+
+    let desc = document.createElement('h2');
+    let descContent = document.createElement('p');
+    
+    let date = document.createElement('h2');
+    let dateContent = document.createElement('p');
+
+    let prio = document.createElement('h2');
+    let prioContent = document.createElement('p');
+
+    let project = document.createElement('h2');
+    let projectContent = document.createElement('p');
+
+    let exit = document.createElement('div');
+
+    modalDetails.classList.add('modal-details');
+    title.classList.add('label-details');
+    titleContent.classList.add('content-details');
+    desc.classList.add('label-details');
+    descContent.classList.add('content-details');
+    date.classList.add('label-details');
+    dateContent.classList.add('content-details');
+    prio.classList.add('label-details');
+    prioContent.classList.add('content-details');
+    project.classList.add('label-details');
+    projectContent.classList.add('content-details');
+    exit.classList.add('exit-details');
+
+    title.textContent = "Title: ";
+    desc.textContent = "Description: ";
+    date.textContent = "Target Date: ";
+    prio.textContent = "Priority: ";
+    project.textContent = "Title: ";
+
+    titleContent.textContent = todos[indexTitle]['Title'];
+    descContent.textContent = todos[indexTitle]['Description'];
+    dateContent.textContent = todos[indexTitle]['Date'];
+    prioContent.textContent = todos[indexTitle]['Priority'];
+    projectContent.textContent = todos[indexTitle]['Project'];
+
+    modalDetails.appendChild(title);
+    modalDetails.appendChild(titleContent);
+
+    modalDetails.appendChild(desc);
+    modalDetails.appendChild(descContent);
+
+    modalDetails.appendChild(date);
+    modalDetails.appendChild(dateContent);
+
+    modalDetails.appendChild(prio);
+    modalDetails.appendChild(prioContent);
+
+    modalDetails.appendChild(project);
+    modalDetails.appendChild(projectContent);
+
+    modalDetails.appendChild(exit);
+    body.appendChild(modalDetails);
+
+}
+
 function createOptions() {
     const select = document.querySelector('.inputProject-todo');
     const selectPrio = document.querySelector('.inputPrio-todo');
 
     let prios = ['High','Medium','Low'];
+    let colors = ['red', '#CCCA3A', 'green'];
 
     //NO PROJECT OPTION
     const optionEmpty = document.createElement('option');
@@ -100,6 +171,8 @@ function createOptions() {
     for(let i = 0; i < 3; i++) {
         const option = document.createElement('option');
         option.textContent = prios[i];
+        option.style.backgroundColor = 'black';
+        option.style.color = colors[i];
 
         selectPrio.appendChild(option);
     }
@@ -118,4 +191,4 @@ function removeOptions() {
     }
 }
 
-export { removeOptions , createOptions , createNewTodoModal }
+export { removeOptions , createOptions , createNewTodoModal , showDetailsModal}
