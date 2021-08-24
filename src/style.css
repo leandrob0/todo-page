@@ -458,19 +458,35 @@ select:last-of-type {
 }
 
 .label-details {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 
     margin-top: 20px;
     margin-bottom: 0;
+    padding: 3px;
 
-    padding: 5px;
+    flex-direction: row;
 }
 
 .content-details {
-    transform: none;
+    font-size: 16px;
+    
+    margin-top: 0;
 }
 
 .exit-details {
-    transform: none;
+    color: #e05355;
+    font-size: 20px;
+    font-weight: 800;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    transition: 0.4s;
+}
+
+.exit-details:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }

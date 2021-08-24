@@ -1,6 +1,7 @@
 import { myTodos } from './todos-module.js';
 import './style.css';
 import deleteIcon from './bin.svg';
+import { showDetailsModal } from './new-todo-modal.js';
 
 function showTodos() {
 
@@ -175,7 +176,26 @@ function createTheWholeTodo(index) {
 
     //DETAILS EVENT LISTENER.
     detailsDiv.addEventListener('click', () => {
-        
+        const backdrop = document.querySelector('.backdrop-modal');
+        const modalTodo = document.querySelector('.modal-details');
+        const exit = document.querySelector('.exit-details');
+
+        let titleSelected = detailsDiv.parentElement.previousElementSibling.lastChild.textContent;
+        console.log(titleSelected);
+        showDetailsModal(titleSelected);
+
+        backdrop.style.display = 'block';
+        modalTodo.style.display = 'flex';
+
+        backdrop.addEventListener('click', () => {
+            backdrop.style.display = 'none';
+            modalTodo.style.display = 'none';
+        });
+
+        exit.addEventListener('click', () => {
+            backdrop.style.display = 'none';
+            modalTodo.style.display = 'none';
+        });
     });
 
     //THIS MAKES THE BORDER THE SPECIFIC COLOR IT NEEDS TO BE ACORDING TO THE PRIO.

@@ -74,9 +74,30 @@ function createNewTodoModal() {
 }
 
 function showDetailsModal(titleTodo) {
-
     let todos = JSON.parse(localStorage.getItem("allEntries"));
-    let indexTitle = myTodos.findToDo(titleTodo);
+    let indexTitle = todos.findIndex(el => el["Title"] === titleTodo);
+
+    console.log(indexTitle);
+
+    let labels = document.querySelectorAll('.label-details');
+    let content = document.querySelectorAll('.content-details');
+    
+    let arrayLabels = ["Title: ", "Description: ", "Target Date: ", "Priority: ", "Title: "];
+    let arrayContents = [todos[indexTitle]['Title'], todos[indexTitle]['Description'] , todos[indexTitle]['Date'] , todos[indexTitle]['Priority'] , todos[indexTitle]['Project']];
+
+    labels = Array.from(labels);
+    content = Array.from(content);
+
+    labels.forEach((label,index) => {
+        label.textContent = arrayLabels[index];
+    });
+
+    content.forEach((content,index) => {
+        content.textContent = arrayContents[index];
+    });
+}
+
+function createDetailsModal() {
 
     let body = document.querySelector('body');
     let modalDetails = document.createElement('div');
@@ -111,17 +132,7 @@ function showDetailsModal(titleTodo) {
     projectContent.classList.add('content-details');
     exit.classList.add('exit-details');
 
-    title.textContent = "Title: ";
-    desc.textContent = "Description: ";
-    date.textContent = "Target Date: ";
-    prio.textContent = "Priority: ";
-    project.textContent = "Title: ";
-
-    titleContent.textContent = todos[indexTitle]['Title'];
-    descContent.textContent = todos[indexTitle]['Description'];
-    dateContent.textContent = todos[indexTitle]['Date'];
-    prioContent.textContent = todos[indexTitle]['Priority'];
-    projectContent.textContent = todos[indexTitle]['Project'];
+    exit.textContent = "X";
 
     modalDetails.appendChild(title);
     modalDetails.appendChild(titleContent);
@@ -191,4 +202,4 @@ function removeOptions() {
     }
 }
 
-export { removeOptions , createOptions , createNewTodoModal , showDetailsModal}
+export { removeOptions , createOptions , createNewTodoModal , showDetailsModal , createDetailsModal}
