@@ -153,12 +153,12 @@ body {
     align-items: center;
 
     padding: 1rem;
-    margin: 1rem;
+    margin: 0.7rem;
     background-color: #dde1f0;
     color: black;
     opacity:1;
 
-    border: 1px solid #999;
+    border: 2px solid #999;
     border-radius: 5px;
 
     overflow: hidden;

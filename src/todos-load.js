@@ -153,11 +153,15 @@ function createTheWholeTodo(index) {
     myIcon.src = deleteIcon;
     myIcon.classList.add('delete-todo');
     myIcon.setAttribute('alt', 'Icons made by https://www.flaticon.com/authors/ddara - dDara');
+    
+    //DELETE ICON BUTTON.
     myIcon.addEventListener('click', () => {
         myTodos.removeToDo(myIcon.parentNode.firstChild.lastChild.textContent);
         containerTodos.removeChild(myIcon.parentNode.parentNode);
     });
+
     //THIS EVENT LISTENER IS COPIED FROM https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation
+    //IT TAKES CARE OF THE DISAPPEAR ANIMATION WHEN THE USER CHECKS THE BOX.
     checkbox.addEventListener('click', () => {
         checkbox.parentElement.parentElement.style.opacity = '0';
         window.setTimeout( function removethis() {
@@ -168,6 +172,16 @@ function createTheWholeTodo(index) {
             containerTodos.removeChild(checkbox.parentElement.parentElement);
         }, 300);
     });
+
+    //DETAILS EVENT LISTENER.
+    detailsDiv.addEventListener('click', () => {
+        
+    });
+
+    //THIS MAKES THE BORDER THE SPECIFIC COLOR IT NEEDS TO BE ACORDING TO THE PRIO.
+    (todos[index]['Priority'] === 'High') ? totalContainer.style.border = '2px solid #e05355' :
+    (todos[index]['Priority'] === 'Medium') ? totalContainer.style.border = '2px solid #CCCA3A' :
+    totalContainer.style.border = '2px solid #4a8f51';
 
     leftSideDiv.appendChild(checkbox);
     leftSideDiv.appendChild(title);

@@ -148,7 +148,7 @@ function createOptions() {
     const selectPrio = document.querySelector('.inputPrio-todo');
 
     let prios = ['High','Medium','Low'];
-    let colors = ['red', '#CCCA3A', 'green'];
+    let colors = ['#e05355', '#CCCA3A', '#4a8f51'];
 
     //NO PROJECT OPTION
     const optionEmpty = document.createElement('option');
