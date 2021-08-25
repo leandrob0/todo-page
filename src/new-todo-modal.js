@@ -76,8 +76,6 @@ function showDetailsModal(titleTodo) {
     let todos = JSON.parse(localStorage.getItem("allEntries"));
     let indexTitle = todos.findIndex(el => el["Title"] === titleTodo);
 
-    console.log(indexTitle);
-
     let labels = document.querySelectorAll('.label-details');
     let content = document.querySelectorAll('.content-details');
     
@@ -200,12 +198,5 @@ function removeOptions() {
         selectPrio.removeChild(selectPrio.firstChild);
     }
 }
-
-//CREATE FUNCTION TO MAKE THE DETAILS MODAL GO ON EDIT MODE WHEN A TITLE (FOR EXAMPLE)
-//IS CLICKED, IT SHOULD GO BACK TO THE OLD TITLE IF THE INPUT THAT WILL APPEAR IS EMPTY
-//IF THE USER CLICKS ENTER O CLICKS AWAY IT SHOULD PUT WHATEVER THE INPUT HAS AS A TITLE
-//IT SHOULD ONLY SHOW ONE OPTION TO EDIT AT THE SAME TIME.
-//THE SAME FUNCTION SHOULD CALL ANOTHER FUNCTION FROM THE TODOS-MODULE(NOT DONE YET) 
-//TO MODIFY THE VALUES THAT THE USER CHANGED AND RELOAD THE PAGE.
 
 export { removeOptions , createOptions , createNewTodoModal , showDetailsModal , createDetailsModal}

@@ -7,10 +7,16 @@ import { removeOptions , createOptions } from './new-todo-modal.js';
 import { myTodos } from './todos-module';
 import { loadTodayTodos, showTodos , loadThisWeekTodos} from './todos-load';
 
+//FUTURE IDEAS: 
+/*
+    ADD A FUNCTION TO EDIT A TODO FROM THE DETAILS TAB, AND TO EDIT A PROJECT NAME.
+    ADD A DIV TO THE SIDEBAR TO SHOW THE PROJECTS NAME MORE COMPACT.
+    ADD A LITTLE MORE RESPONSIVENESS, AND ADD A MOBILE VERSION.
+    MAKE THE CODE LESS MESSY.
+*/
+
 //loads the whole page content
 contentLoader();
-
-//localStorage.clear();
 
 /* 
 #################################################

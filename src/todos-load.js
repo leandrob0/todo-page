@@ -179,9 +179,9 @@ function createTheWholeTodo(index) {
         const backdrop = document.querySelector('.backdrop-modal');
         const modalTodo = document.querySelector('.modal-details');
         const exit = document.querySelector('.exit-details');
+        const contents = document.querySelectorAll('.content-details');
 
         let titleSelected = detailsDiv.parentElement.previousElementSibling.lastChild.textContent;
-        console.log(titleSelected);
         showDetailsModal(titleSelected);
 
         backdrop.style.display = 'block';

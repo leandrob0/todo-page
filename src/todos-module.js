@@ -34,6 +34,16 @@ const myTodos = (function() {
         localStorage.setItem("allEntries", JSON.stringify(todos));
     }
 
+    /* FUNCTION TO BE IMPLEMENTED
+    function editTodo(prop, content, index) {
+        let todos = JSON.parse(localStorage.getItem("allEntries"));
+
+        todos[index][prop] = content;
+
+        localStorage.setItem("allEntries", JSON.stringify(todos));
+    }
+    */
+
     function checkIfRepeated(title) {
         let todos = JSON.parse(localStorage.getItem("allEntries"));
         if(todos === null) {
