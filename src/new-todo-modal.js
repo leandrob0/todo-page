@@ -34,7 +34,7 @@ function createNewTodoModal() {
     inputDate.setAttribute('type','date');
     inputDate.classList.add('inputDate-todo');
     date.classList.add('todo-label');
-    let today = new Date().toISOString().slice(0, 10); //get current date and set it to the minimum date
+    let today = new Date().toISOString().slice(0, 10); // get current date and set it to the minimum date
     inputDate.setAttribute('min', today);
 
     priority.classList.add('todo-label');
@@ -158,7 +158,7 @@ function createOptions() {
     let prios = ['High','Medium','Low'];
     let colors = ['#e05355', '#CCCA3A', '#4a8f51'];
 
-    //NO PROJECT OPTION
+    // NO PROJECT OPTION
     const optionEmpty = document.createElement('option');
     optionEmpty.textContent = "no project";
 
