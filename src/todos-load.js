@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { myTodos } from './todos-module.js';
 import './style.css';
 import deleteIcon from './bin.svg';
@@ -50,7 +51,7 @@ function loadTodayTodos() {
         let isToday = todos[i]['Date'].split('-');
         let isToday2 = today.split('-');
 
-        //CHECKS THE LAST VALUE OF THE DATE WHICH IS THE DAY, IF THAT IS THE SAME, THE TODO SHOWS
+        // CHECKS THE LAST VALUE OF THE DATE WHICH IS THE DAY, IF THAT IS THE SAME, THE TODO SHOWS
         if(isToday[2] == isToday2[2]) {
             createTheWholeTodo(i);
         }
@@ -73,7 +74,7 @@ function loadThisWeekTodos() {
         let isToday = todos[i]['Date'].split('-');
         let isToday2 = today.split('-');
 
-        //CHECKS THE LAST VALUE OF THE DATE WHICH IS THE DAY, IF THAT IS THE SAME, THE TODO SHOWS
+        // CHECKS THE LAST VALUE OF THE DATE WHICH IS THE DAY, IF THAT IS THE SAME, THE TODO SHOWS
         if(isToday[1] == isToday2[1]) {
             if(isToday[2] > isToday2[2]) {
                 if(parseInt(isToday[2]) - parseInt(isToday2[2]) <= 7) {
@@ -155,14 +156,14 @@ function createTheWholeTodo(index) {
     myIcon.classList.add('delete-todo');
     myIcon.setAttribute('alt', 'Icons made by https://www.flaticon.com/authors/ddara - dDara');
     
-    //DELETE ICON BUTTON.
+    // DELETE ICON BUTTON.
     myIcon.addEventListener('click', () => {
         myTodos.removeToDo(myIcon.parentNode.firstChild.lastChild.textContent);
         containerTodos.removeChild(myIcon.parentNode.parentNode);
     });
 
-    //THIS EVENT LISTENER IS COPIED FROM https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation
-    //IT TAKES CARE OF THE DISAPPEAR ANIMATION WHEN THE USER CHECKS THE BOX.
+    // THIS EVENT LISTENER IS COPIED FROM https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation
+    // IT TAKES CARE OF THE DISAPPEAR ANIMATION WHEN THE USER CHECKS THE BOX.
     checkbox.addEventListener('click', () => {
         checkbox.parentElement.parentElement.style.opacity = '0';
         window.setTimeout( function removethis() {
@@ -174,7 +175,7 @@ function createTheWholeTodo(index) {
         }, 300);
     });
 
-    //DETAILS EVENT LISTENER.
+    // DETAILS EVENT LISTENER.
     detailsDiv.addEventListener('click', () => {
         const backdrop = document.querySelector('.backdrop-modal');
         const modalTodo = document.querySelector('.modal-details');
@@ -197,7 +198,7 @@ function createTheWholeTodo(index) {
         });
     });
 
-    //THIS MAKES THE BORDER THE SPECIFIC COLOR IT NEEDS TO BE ACORDING TO THE PRIO.
+    // THIS MAKES THE BORDER THE SPECIFIC COLOR IT NEEDS TO BE ACORDING TO THE PRIO.
     (todos[index]['Priority'] === 'High') ? totalContainer.style.border = '2px solid #e05355' :
     (todos[index]['Priority'] === 'Medium') ? totalContainer.style.border = '2px solid #CCCA3A' :
     totalContainer.style.border = '2px solid #4a8f51';

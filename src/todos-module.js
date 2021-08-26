@@ -60,7 +60,7 @@ const myTodos = (function() {
     function saveInLocalStorage(title,desc,date,prio,pro) {
         if (typeof(Storage) !== 'undefined') {
 
-            //CODE COPIED FROM https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
+            // CODE COPIED FROM https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
             let existingEntries = JSON.parse(localStorage.getItem("allEntries"));
 
             if(existingEntries === null) existingEntries = [];
