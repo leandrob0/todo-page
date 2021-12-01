@@ -2,9 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: {
     index: './src/index.js',
-    print: './src/page-load.js',
   },
   devtool: 'inline-source-map',
   devServer: {
