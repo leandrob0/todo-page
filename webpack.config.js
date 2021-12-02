@@ -6,10 +6,6 @@ module.exports = {
   entry: {
     index: './src/index.js',
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Todo page',
@@ -43,7 +39,7 @@ module.exports = {
             presets: [
               ['@babel/preset-env', { targets: "defaults" }]
             ],
-            plugins: ['@babel/plugin-transform-runtime']
+            cacheDirectory: true,
           }
         }
       }

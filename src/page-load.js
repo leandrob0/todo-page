@@ -15,14 +15,14 @@ import { createNewTodoModal , createDetailsModal } from './new-todo-modal.js';
 
 function contentLoader() {
 
-    //ADD THE CONTAINER OF THE WHOLE PAGE
+    // ADD THE CONTAINER OF THE WHOLE PAGE
     const body = document.querySelector('body');
 
     const containerTotal = document.createElement('div');
     containerTotal.classList.add('container-total');
     body.appendChild(containerTotal);
 
-    //ADDS THE PAGE HEADER WITH ALL ITS CONTENT
+    // ADDS THE PAGE HEADER WITH ALL ITS CONTENT
     const header = document.createElement('header');
     const titlePage = document.createElement('p');
     const myIcon = new Image();
@@ -38,31 +38,31 @@ function contentLoader() {
     header.appendChild(titlePage);
     containerTotal.appendChild(header);
 
-    //ADDS THE PAGE SIDEBAR
+    // ADDS THE PAGE SIDEBAR
     const sidebar = document.createElement('div');
 
     sidebar.classList.add('sidebar');
 
     containerTotal.appendChild(sidebar);
 
-    //loads the sidebar with the text that will always be there
+    // loads the sidebar with the text that will always be there
     sidebarLoad();
 
-    //ADDS THE PAGE LISTS CONTENT HOLDER
+    // ADDS THE PAGE LISTS CONTENT HOLDER
     const lists = document.createElement('div');
 
     lists.classList.add('lists-container');
 
     containerTotal.appendChild(lists);
 
-    //this lines first render the todo's then the 'button' to add new projects 
-    //and then the projects already created and the button to add new todos
+    // this lines first render the todo's then the 'button' to add new projects 
+    // and then the projects already created and the button to add new todos
     showTodos();
     addNewProjectLoad();
     projectsNameLoad();
     addTodoButton();
 
-    //Creates the modal for when the new project button is clicked
+    // Creates the modal for when the new project button is clicked
     createNewProjectModal();
     createNewTodoModal();
     createDetailsModal();
